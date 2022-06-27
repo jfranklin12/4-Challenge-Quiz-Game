@@ -1,8 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Prompt:wght@300&display=swap');
+
 *{
     box-sizing: border-box;
+    font-family: "Dongle";
 }
 
 header {
     display: flex;
     justify-content: space-between;
 }
+
+.box {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.navigate {
+    display: flex;
+    justify-content: center;
+}
+
+.answerGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.questions {
+    display: flex;
+    align-content: flex-start;
+}
+
+.button {
+    width: 35%;
+    flex-wrap: wrap;
+    padding: 2%;
+    margin: 1%;
+}
+
+
+
