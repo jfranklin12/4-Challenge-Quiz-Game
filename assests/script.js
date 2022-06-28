@@ -1,23 +1,15 @@
-var startEL = document.getElementById("#start");
+var startButtonEL = document.getElementById("start");
+var questionBoxEl = document.getElementById("questionBox");
 
 
 
 function startQuiz() {
-    console.log('QuizStarted')
-
-}
-
-startEL.addEventListener('click', startQuiz) {
+    startButtonEL.addEventListener('click', function(startQuiz) {
+        startButtonEL.style.display = 'none';
+        questionBoxEl.style.display = 'inline';
     
-    var hide = startQuiz.target;
-
-    if (hide.matches("#start")) {
-        var state = hide.getAttribute("data-state");
-
-        if(state === "hidden") {
-            hide.textcontent = hide.dataset.button;
-            hide.dataset.state = "hidden";
-        }
-
-    }
+    });
 }
+
+startQuiz();
+

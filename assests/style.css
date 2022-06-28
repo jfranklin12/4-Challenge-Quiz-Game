@@ -17,6 +17,8 @@ header {
     height: 100%;
     padding-left: 10%;
     padding-right: 10%;
+    font-size: xx-large;
+    display: none;
 }
 
 .navigate {
@@ -40,6 +42,12 @@ header {
     flex-wrap: wrap;
     padding: 2%;
     margin: 1%;
+    font-size: x-large;
+}
+
+#start {
+    font-size: x-large;
+    text-align: center;
 }
 
 
