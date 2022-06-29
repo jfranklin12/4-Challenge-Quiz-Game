@@ -136,13 +136,11 @@ startButtonEL.addEventListener('click', function() {
 
 // function to save high score to local storage
 saveButtonEL.addEventListener("click", function(event){
-    event.preventDefault();
     var player = {
         initials: initialsInput.value.trim(),
         score: score,
     }
-    
-
-    localStorage.setItem(player, JSON.stringify(player))
+    localStorage.setItem("player", JSON.stringify(player))
 
 });
+
