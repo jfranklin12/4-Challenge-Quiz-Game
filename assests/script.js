@@ -11,7 +11,7 @@ var gameOverEL = document.getElementById("gameOver");
 var saveButtonEL = document.getElementById("save");
 var initialsInput = document.getElementById("initials");
 var showScoreEL = document.getElementById("score");
-var highscore = document.getElementById("highscore");
+var highscoreEL = document.getElementById("highscore");
 var i = 0
 var timeLeft = 60
 var score = 0
@@ -103,6 +103,8 @@ function timerCountdown(event) {
     }, 1000);
 }
 
+
+
 // Function to check if the answser is correct and actions at the end of quiz
 function checkAnswer(event){
     if (myQuestions[i].correctAnswer === event.target.innerText) {
@@ -122,12 +124,14 @@ function checkAnswer(event){
     }
 }
 
+
 // Function to start the quiz
 function startQuiz() {
     startButtonEL.style.display = 'none';
     questionBoxEl.style.display = 'inline';
     timerCountdown();
     showQuestions();
+
 }
 
 startButtonEL.addEventListener('click', function() {
@@ -143,4 +147,5 @@ saveButtonEL.addEventListener("click", function(event){
     localStorage.setItem("player", JSON.stringify(player))
 
 });
+
 
