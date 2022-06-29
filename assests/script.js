@@ -1,3 +1,4 @@
+// global variables.
 var startButtonEL = document.getElementById("start");
 var questionBoxEl = document.getElementById("questionBox");
 var timerEL = document.getElementById("timer");
@@ -6,40 +7,43 @@ var answers1EL = document.getElementById("answerButton1");
 var answers2EL = document.getElementById("answerButton2");
 var answers3EL = document.getElementById("answerButton3");
 var answers4EL = document.getElementById("answerButton4");
-var gameOverEL = document.getElementById("gameOver")
+var gameOverEL = document.getElementById("gameOver");
+var saveButtonEL = document.getElementById("save");
+var initialsInput = document.getElementById("initials");
+var showScoreEL = document.getElementById("score");
 
 
 
 var myQuestions = [
     {
-        question: "Which animal can fly?",
+        question: "Which is not a JavaScript Data type?",
         answers: {
-            a: "cat",
-            b: "dog",
-            c: "bird",
-            d: "elephant",
+            a: "number",
+            b: "food",
+            c: "string",
+            d: "boolean",
         },
-        correctAnswer: "bird"
+        correctAnswer: "food"
     },
     {
-        question: "What color is the sky?",
+        question: "What does 'var' stand for?",
         answers: {
-            a: "blue",
-            b: "green",
-            c: "purple",
-            d: "orange",
+            a: "variable",
+            b: "variant",
+            c: "variety",
+            d: "variance",
         },
-        correctAnswer: "blue"
+        correctAnswer: "variable"
     },
     {
-        question: "How many names oceans are in the world?",
+        question: "When an operator's value is NULL, the typeof returned by the unary operator is:",
         answers: {
-            a: "4",
-            b: "5",
-            c: "6",
-            d: "7",
+            a: "Boolean",
+            b: "Undefined",
+            c: "Object",
+            d: "Interger",
         },
-        correctAnswer: "5"
+        correctAnswer: "Object"
     },
 
 ]
@@ -59,6 +63,34 @@ function showQuestions() {
     answers4EL.addEventListener('click', checkAnswer)
 
 }
+// function myStopFunction(){
+//     clearTimeout(timeLeft);
+// }
+
+
+
+// for user to type in text box and save high score- 
+// local store to high scores page
+
+
+// timer function
+function timerCountdown(event) {
+    var timeInterval = setInterval(function() {
+        if (timeLeft > 0) {
+            timerEL.textContent = 'Timer: ' + timeLeft;
+            timeLeft--;
+        } else {
+            // End Quiz Function
+            timerEL.textContent = 'Times up!';
+            clearInterval(timeInterval);
+            questionBoxEl.style.display = 'none'
+            gameOverEL.style.display = 'inline'
+
+        }
+    }, 1000);
+}
+
+var timeInterval = 0
 
 function checkAnswer(event){
     if (myQuestions[i].correctAnswer === event.target.innerText) {
@@ -72,28 +104,17 @@ function checkAnswer(event){
     showQuestions()
     } else {
         // create game over div in html to connect
+        clearInterval(timeInterval);
+        timerEL.textContent = '0';
+        // timerCountdown.preventDefault();
         questionBoxEl.style.display = 'none'
         gameOverEL.style.display = 'inline'
     }
 }
 
-// for user to type in text box and save high score- 
-// local store to high scores page
-
-
-
-function timerCountdown() {
-    var timeInterval = setInterval(function() {
-        if (timeLeft > 0) {
-            timerEL.textContent = 'Timer: ' + timeLeft;
-            timeLeft--;
-        } else {
-            timerEL.textContent = 'Times up!';
-            clearInterval(timeInterval);
-            // End Quiz Function
-        }
-    }, 1000);
-}
+// function showScore(){
+//     showScoreEL.innertext = timeLeft * 100;
+// }
 
 function startQuiz() {
     startButtonEL.style.display = 'none';
@@ -104,13 +125,14 @@ function startQuiz() {
 
 startButtonEL.addEventListener('click', function() {
     startQuiz()
-})
+});
 
+saveButtonEL.addEventListener("click", function(event){
+    event.preventDefault();
+    var player = {
+        initials: initialsInput.value.trim(),
+        score: 
+    };
+    localStorage.setItem("player", JSON.stringify(player));
 
-
-
-
-
-
-// function playQuiz(){
-// answers1EL.addEventListener("click", function(nextQuestion))
+});
