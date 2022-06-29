@@ -45,6 +45,26 @@ var myQuestions = [
         },
         correctAnswer: "Object"
     },
+    {
+        question: "What symbols are used to store an array?",
+        answers: {
+            a: "()",
+            b: "{}",
+            c: "''",
+            d: "[]",
+        },
+        correctAnswer: "[]"
+    },
+    {
+        question: "Arrays in JavaScript are defined by which of the following statements?",
+        answers: {
+            a: "It is an ordered list of values.",
+            b: "It is an ordered list of objects.",
+            c: "It is an ordered list of string.",
+            d: "It is an ordered list of functions.",
+        },
+        correctAnswer: "It is an ordered list of values."
+    },
 
 ]
 var i = 0
@@ -132,7 +152,8 @@ saveButtonEL.addEventListener("click", function(event){
     var player = {
         initials: initialsInput.value.trim(),
         score: 
-    };
+    
+
     localStorage.setItem("player", JSON.stringify(player));
 
 });
