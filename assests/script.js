@@ -11,9 +11,10 @@ var gameOverEL = document.getElementById("gameOver");
 var saveButtonEL = document.getElementById("save");
 var initialsInput = document.getElementById("initials");
 var showScoreEL = document.getElementById("score");
+var highscore = document.getElementById("highscores")
 
 
-
+// My quiz questions
 var myQuestions = [
     {
         question: "Which is not a JavaScript Data type?",
@@ -70,6 +71,7 @@ var myQuestions = [
 var i = 0
 var timeLeft = 60
 
+// 
 function showQuestions() {
     questionEL.innerText = myQuestions[i].question;
     answers1EL.innerText = myQuestions[i].answers.a;
@@ -109,26 +111,28 @@ function timerCountdown(event) {
         }
     }, 1000);
 }
-
+var score = 0
 var timeInterval = 0
 
 function checkAnswer(event){
     if (myQuestions[i].correctAnswer === event.target.innerText) {
         console.log("correct!");
+        score++;
     } else { 
         timeLeft -= 10
         console.log("incorrect!")
     }
     i++ 
-    if (i<myQuestions.length){
+    if (i<myQuestions.length) {
     showQuestions()
     } else {
         // create game over div in html to connect
-        clearInterval(timeInterval);
-        timerEL.textContent = '0';
+        // clearInterval(timeInterval);
+        // timerEL.textContent = '0';
         // timerCountdown.preventDefault();
         questionBoxEl.style.display = 'none'
         gameOverEL.style.display = 'inline'
+        timerEL.style.display = 'none'
     }
 }
 
@@ -151,9 +155,14 @@ saveButtonEL.addEventListener("click", function(event){
     event.preventDefault();
     var player = {
         initials: initialsInput.value.trim(),
-        score: 
+        score: score,
+    }
     
 
-    localStorage.setItem("player", JSON.stringify(player));
+    localStorage.setItem(player, JSON.stringify(player))
 
 });
+
+function showHighScores(){
+    localStorage.getItem('')
+}
