@@ -2,11 +2,11 @@ var startButtonEL = document.getElementById("start");
 var questionBoxEl = document.getElementById("questionBox");
 var timerEL = document.getElementById("timer");
 var questionEL = document.getElementById("questions");
-var userChoice = document.getElementsByClassName("button");
 var answers1EL = document.getElementById("answerButton1");
 var answers2EL = document.getElementById("answerButton2");
 var answers3EL = document.getElementById("answerButton3");
 var answers4EL = document.getElementById("answerButton4");
+var gameOverEL = document.getElementById("gameOver")
 
 
 
@@ -71,23 +71,16 @@ function checkAnswer(event){
     if (i<myQuestions.length){
     showQuestions()
     } else {
-        
+        // create game over div in html to connect
+        questionBoxEl.style.display = 'none'
+        gameOverEL.style.display = 'inline'
     }
 }
 
-function displayAnswer(){}
+// for user to type in text box and save high score- 
+// local store to high scores page
 
 
-
-function nextQuestion(){
- {
-    if (correctAnswer === true){
-        console.log("correct!");
-        } else {
-            console.log("incorrect!");
-        };
-    }
-}
 
 function timerCountdown() {
     var timeInterval = setInterval(function() {

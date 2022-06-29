@@ -9,8 +9,8 @@ header {
     display: flex;
     justify-content: space-between;
 }
-
-.box {
+/* Questions and answers box and game over screen*/
+.box, #gameOver {
     display: inline-block;
     text-align: center;
     width: 100%;
@@ -20,21 +20,16 @@ header {
     font-size: xx-large;
     display: none;
 }
-
-.navigate {
+/* Questions header */
+.questions {
     display: flex;
-    justify-content: center;
+    align-content: flex-start;
 }
-
+/* Answer grid and answer buttons */
 .answerGrid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.questions {
-    display: flex;
-    align-content: flex-start;
 }
 
 .button {
@@ -44,11 +39,27 @@ header {
     margin: 1%;
     font-size: x-large;
 }
+/* Start button */
 
-#start {
+#start, #save {
     font-size: x-large;
     text-align: center;
+    display: block;
+    margin: 20px auto;
+    width: 11%;
 }
+/* Gameover box with high score */
+#initials {
+    display: block;
+    height: 40px;
+    width: 100px;
+    background-color: whitesmoke;
+    margin: auto;
+    font-size: 35px;
+    text-align: center;
+}
+
+
 
 
 
